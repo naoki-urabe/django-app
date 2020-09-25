@@ -1,4 +1,36 @@
+<a href="{% url 'logout' %}">ログアウト</a><br>
+CREATE
+<form action="" method="post">
+    {% csrf_token %}
+    name:{{ form.name }}
+    age:{{ form.age }}
+    <input type="submit" name="register">
+</form>
+
+READ
+<form action="" method="post">
+    {% csrf_token %}
+    age:{{ form.age }}
+    <input type="submit" name="select">
+</form>
+
+UPDATE
+<form action="" method="post">
+    {% csrf_token %}
+    id:<input type="text" name="update_id" value="">
+    age:{{ form.age }}
+    <input type="submit" name="update">
+</form>
+
+DELETE
+<form action="" method="post">
+    {% csrf_token %}
+    id:<input type="text" name="delete_id" value="">
+    <input type="submit" name="delete">
+</form>
 {% for employee in employees %}
+    {{ employee.id }}
     {{ employee.name }}
     {{ employee.age }}
+    <br>
 {% endfor %}
